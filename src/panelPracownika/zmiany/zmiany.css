@@ -1,0 +1,36 @@
+.zmiany {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100vw;
+    height: 85vh;
+}
+
+.zmianyTydzien {
+    margin: 0 auto;
+    width: 80vw;
+    height: 31vh;
+    background-color: #D9D9D9;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.wybranyDzien {
+    width: 80vw;
+    height: 10.5vh;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #D9D9D9;
+    margin-bottom: 3vh;
+}
+
+#wybranaData {
+    margin: 2vh auto;
+}
+
+.godzina {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 3vw;
+    background-color: #898989;
+    padding: 2%;
+}
