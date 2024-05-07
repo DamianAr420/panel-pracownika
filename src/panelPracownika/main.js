@@ -18,12 +18,12 @@ export default class Main extends React.Component {
           <Link className='navi' to="/profil">Profil</Link>
         </div>
         <div className="body">
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/zmiany" element={<Zmiany />} />
-              <Route path="/kontakt" element={<Kontakt />} />
-              <Route path="/profil" element={<Profil />} />
-            </Routes>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/zmiany" element={<Zmiany />} />
+            <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/profil" element={<Profil />} />
+          </Routes>
         </div>
         </Router>
       </div>

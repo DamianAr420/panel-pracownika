@@ -36,6 +36,16 @@ class Actions {
             return res.status(500).json({ error: 'Błąd podczas logowania' });
         }
     }
+
+    async pobierzDane(req, res) {
+        try {
+            const users = await User.find();
+            return res.status(200).json({ users });
+        } catch (err) {
+            console.log("Błąd podczas pobierania listy", err);
+            return res.status(500).json({error: 'Błąd podczas pobierania listy'});
+        }
+    }
 }
 
 module.exports = new Actions();

@@ -7,10 +7,12 @@
 
 .navi {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: black;
     height: 15vh;
     text-align: center;
-    line-height: 15vh;
     border-right: 1px solid gray;
     border-left: 1px solid gray;
     color: white;

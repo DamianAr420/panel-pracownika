@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken');
 const express = require('express');
 const app = express();
 const { port } = require('./config');
@@ -11,8 +10,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', apiRouters);
 app.use(cors());
 
+app.get('/pobierzDane', apiRouters);
 app.post('/login', apiRouters);
 
 app.listen(port, () => {
     console.log('Serwer działa na porcie: ' + port);
 });
+
+module.exports = app;
