@@ -1,11 +1,11 @@
-.kontakt {
+.contact {
     display: grid;
     grid-template-columns: 1fr;
     width: 100vw;
     height: 85vh;
 }
 
-.przełożeni {
+.superiors {
     width: 70vw;
     height: 50vh;
     background-color: #D9D9D9;
@@ -22,6 +22,7 @@
     display: grid;
     grid-template-columns: 1fr;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .user:first-child {
@@ -36,11 +37,27 @@
     border-top: 2px solid black;
 }
 
-.imie {
+.name {
     text-align: center;
 }
 
 .info {
     background-color: #7c7c7c;
     font-size: 1.5rem;
+}
+
+.employees {
+    width: 70vw;
+    margin: 0 auto;
+    margin-bottom: 5vh;
+    background-color: #a8a8a8;
+}
+
+.employees select {
+    width: 30vw;
+    height: 6vh;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
 }
