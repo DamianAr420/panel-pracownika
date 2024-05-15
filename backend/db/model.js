@@ -16,9 +16,21 @@ const UserSchema = new mongoose.Schema({
     zmiany: [{
         data: String,
         od: String,
-        do: String
+        do: String,
     }],
     role: {
+        type: String,
+    },
+    tel: {
+        type: String,
+    },
+    email: {
+        type: String,
+    },
+    stanowisko: {
+        type: String,
+    },
+    umowa: {
         type: String,
     },
 }, { collection: 'pracownicy' });

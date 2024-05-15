@@ -1,20 +1,53 @@
-.zmiany {
+.shift {
     display: grid;
     grid-template-columns: 1fr;
     width: 100vw;
     height: 85vh;
 }
 
-.zmianyTydzien {
+.shiftToday {
     margin: 0 auto;
     width: 80vw;
-    height: 31vh;
+    height: 10vh;
     background-color: #D9D9D9;
     text-align: center;
+    line-height: 10vh;
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.wybranyDzien {
+.shiftsWeek {
+    width: 80vw;
+    height: 40vh;
+    background-color: #D9D9D9;
+    margin: 0 auto;
+}
+
+.shiftsWeek h1 {
+    text-align: center;
+    border-bottom: 2px solid black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 6vh;
+    line-height: 6vh;
+}
+
+.shiftsWeek ul {
+    margin-top: 3.5vh;
+    height: 27vh;
+}
+
+.shiftsWeek li {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.selectedDay {
     width: 80vw;
     height: 10.5vh;
     margin: 0 auto;
@@ -23,11 +56,11 @@
     margin-bottom: 3vh;
 }
 
-#wybranaData {
+.selectedDate {
     margin: 2vh auto;
 }
 
-.godzina {
+.hours {
     font-size: 1.2rem;
     font-weight: bold;
     margin-left: 3vw;

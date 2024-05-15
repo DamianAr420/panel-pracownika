@@ -49,18 +49,8 @@ export default function Login() {
             }
         })
         .then(data => {
-            const { user, otherUsers } = data;
-            const { imie, nazwisko, zmiany } = user;
-            const selectedZmiany = zmiany.map(zmiana => ({ data: zmiana.data, od: zmiana.od, do: zmiana.do }));
-            const selectedUserData = { imie, nazwisko, zmiany: selectedZmiany };
-            localStorage.setItem('userData', JSON.stringify(selectedUserData));
-        
-            const otherSelectedZmiany = otherUsers.map(user => ({
-                imie: user.imie,
-                nazwisko: user.nazwisko,
-                zmiany: user.zmiany.map(zmiana => ({ data: zmiana.data, od: zmiana.od, do: zmiana.do }))
-            }));
-            localStorage.setItem('otherUsers', JSON.stringify(otherSelectedZmiany));
+            const {user} = data;
+            localStorage.setItem("user", user._id);
         })
         .catch(error => {
             setError(error.message);

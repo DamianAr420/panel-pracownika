@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.witaj {
+.welcome {
     width: 90vw;
     height: 6vh;
     margin: 0 auto;
@@ -18,7 +18,7 @@
     margin-top: 5%;
 }
 
-.zmianaDzisiaj {
+.shiftToday {
     width: 80vw;
     height: 10vh;
     background-color: #D9D9D9;
@@ -26,16 +26,17 @@
     line-height: 10vh;
     margin: 0 auto;
     font-size: 1.6rem;
-    font-weight: 400;
+    font-weight: bold;
 }
 
-.pracownicyDzisiaj {
+.employeesToday {
     width: 80vw;
     height: 40vh;
     margin: 0 auto;
     background-color: #D9D9D9;
     font-size: 1.5rem;
     font-weight: 500;
+    overflow: auto;
 }
 
 .logout {

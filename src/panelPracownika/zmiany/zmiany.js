@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import './zmiany.css';
 
 export default function Zmiany() {
@@ -7,57 +8,83 @@ export default function Zmiany() {
     nazwisko: "",
     zmiany: []
   });
-  const dniTygodnia = ['pon', 'wt', 'śr', 'czw', 'pt', 'sob', 'niedz'];
+  const weekDays = ['Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob', 'Niedz'];
   const [selectedDate, setSelectedDate] = useState('');
 
   useEffect(() => {
-    const storedUserData = JSON.parse(localStorage.getItem("userData"));
-    const sortedZmiany = storedUserData.zmiany.sort((a, b) => a - b)
-    setZmiany({
-      imie: storedUserData.imie, 
-      nazwisko: storedUserData.nazwisko, 
-      zmiany: sortedZmiany
-    });
+    axios.get(process.env.REACT_APP_FETCH)
+      .then(res => {
+        const user = res.data.users.find(user => user._id === localStorage.getItem("user"));
+        if(user) {
+          setZmiany({
+            imie: user.imie,
+            nazwisko: user.nazwisko,
+            zmiany: user.zmiany
+          });
+        } else {
+          setZmiany(["Error: User not found"]);
+          console.log("Error: User not found");
+        }
+      })
+      .catch(err => {
+        setZmiany(["Error: ", err]);
+        console.log('Error', err);
+      });
   }, []);
 
-  const zmianyTydzien = () => {
+  const shiftToday = () => {
     const today = new Date().toLocaleDateString();
-    const foundWeek = [];
-    let firstDate = "";
-    let lastDate = "";
-  
     for(let i = 0; i < zmiany.zmiany.length; i++) {
       if(zmiany.zmiany[i].data === today) {
-        const todayNum = new Date().getDay();
-        if(todayNum === 1) {
-          for(let g = i; g < (i + 7); g++) {
-            if(zmiany.zmiany[g]) {
-              foundWeek.push(zmiany.zmiany[g]);
-            } else foundWeek.push("");
-          }
-          firstDate = foundWeek[0]?.data;
-          lastDate = foundWeek[foundWeek.length - 1]?.data;
-          break;
-        } else {
-          for(let h = i - (todayNum - 1); h < h + 7; h++) {
-            if(zmiany.zmiany[h]) {
-              foundWeek.push(zmiany.zmiany[h]);
-            } else foundWeek.push("");
-          }
-          firstDate = foundWeek[0]?.data;
-          lastDate = foundWeek[foundWeek.length - 1]?.data;
-        }
+        return(
+          <>
+            {`${zmiany.zmiany[i].data}: ${zmiany.zmiany[i].od} - ${zmiany.zmiany[i].do}`}
+          </>
+        )
       }
     }
-  
-    const weekList = foundWeek.map((tydzien, index) => (
-      <li key={index}>{`${dniTygodnia[index]}: ${tydzien.od}-${tydzien.do}`}</li>
-    ));
-  
     return(
       <>
-        <h1 className='font-bold'>{`${firstDate} - ${lastDate}`}</h1>
-        {weekList}
+        Dzień wolny
+      </>
+    )
+  };
+
+  const shiftsWeek = () => {
+    const today = new Date();
+    const firstDate = new Date(today);
+    const lastDate = new Date(today);
+    const weekShift = new Array(7)
+  
+    firstDate.setDate(today.getDate() - today.getDay() + 1);
+    lastDate.setDate(today.getDate() + (7 - today.getDay()));
+  
+    for(let i = 0; i < 7; i++) {
+      for(let g = 0; g < zmiany.zmiany.length; g++) {
+        if(zmiany.zmiany[g].data === firstDate.toLocaleDateString()) {
+          weekShift[i] = `${zmiany.zmiany[g].od} - ${zmiany.zmiany[g].do}`
+        }
+      }
+      if(weekShift[i] === undefined) {
+        weekShift[i] = "Dzień wolny";
+      }
+      firstDate.setDate(firstDate.getDate() + 1);
+    }
+
+    firstDate.setDate(today.getDate() - today.getDay() + 1);
+    
+
+    return (
+      <>
+        <h1>{`${firstDate.toLocaleDateString()} - ${lastDate.toLocaleDateString()}`}</h1>
+        <ul>
+          {weekShift.map((shift, index) => (
+            <li key={index}>
+              <div className='text-red-500 w-[30%]'>{weekDays[index]}:</div>
+              <div className='text-green-700'>{shift}</div>
+            </li>
+          ))}
+        </ul>
       </>
     );
   };
@@ -101,24 +128,19 @@ export default function Zmiany() {
   };
 
   return (
-    <div className='zmiany'>
+    <div className='shift'>
       <h1 className='font-bold text-[1.5rem] mx-auto mt-[3vh] h-[4vh]'>Dzisiaj</h1>
-      <div className='zmianaDzisiaj'>
-        {zmiany.zmiany.map((dzisiaj, index) => {
-          return <div key={index}>
-            {dzisiaj.data === new Date().toLocaleDateString() ? 
-            `${dzisiaj.od}-${dzisiaj.do}` : ""}
-          </div>
-        })}
+      <div className='shiftToday'>
+        {shiftToday()}
       </div>
       <h1 className='font-bold text-[1.5rem] mx-auto h-[4vh]'>Tydzień</h1>
-      <ul className='zmianyTydzien'>
-        {zmianyTydzien()}
-      </ul>
+      <div className='shiftsWeek'>
+        {shiftsWeek()}
+      </div>
       <h1 className='font-bold text-[1.5rem] mx-auto h-[4vh]'>Wybierz dzień</h1>
-      <div className='wybranyDzien'>
-        <input type="date" id="wybranaData" value={selectedDate} onChange={handleDateChange}/>
-        <span className='godzina'>
+      <div className='selectedDay'>
+        <input type="date" className='selectedDate' value={selectedDate} onChange={handleDateChange}/>
+        <span className='hours'>
           {selectedDay()}
         </span>
       </div>

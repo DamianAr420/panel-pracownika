@@ -26,7 +26,7 @@ export default function Kontakt() {
 
   const fetchSuperiors = () => {
     return data.map((user, key) => {
-      if(user.role === "admin") {
+      if(user.role === "admin" && user._id !== localStorage.getItem("user")) {
         return(
           <li 
             onClick={() => handleClick(user._id)} 
@@ -49,7 +49,7 @@ export default function Kontakt() {
 
   const fetchEmployees = () => {
     return data.map((selected, key) => {
-      if(selected.role === "user") {
+      if(selected.role === "user" && selected._id !== localStorage.getItem("user")) {
         return(
           <option 
             key={key}

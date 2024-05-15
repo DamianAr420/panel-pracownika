@@ -1,0 +1,124 @@
+.profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 85vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.surname {
+    width: 80vw;
+    height: 7vh;
+    background-color: #D9D9D9;
+    text-align: center;
+    line-height: 7vh;
+    margin: 0 auto;
+    margin-top: 5vh;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.data {
+    width: 80vw;
+    height: 50vh;
+    background-color: #D9D9D9;
+    margin: 0 auto;
+    overflow: auto;
+    text-align: left;
+}
+
+.data ul li {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 1%;
+}
+
+.edit {
+    padding: 1%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: rgb(255, 187, 0);
+}
+
+.modal {
+    width: 80vw;
+    height: 90vh;
+    box-shadow: 0px 0px 100px 80px rgb(180, 180, 180);
+    background-color: gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+table td {
+    font-size: 1.5rem;
+}
+
+table input {
+    width: 75%;
+}
+
+table td:nth-child(2n + 1) {
+    width: 25%;
+    text-align: right;
+}
+
+.buttons {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.close {
+    padding: 12%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgb(230, 20, 20);
+    margin-bottom: 12%;
+}
+
+.save {
+    padding: 4%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgb(20, 230, 20);
+    margin-bottom: 4%;
+}
+
+.changes {
+    width: 40vw;
+    height: auto;
+    background-color: rgba(218, 199, 32, 0.863);
+    border: 2px solid black;
+    font-size: 1.2rem;
+    font-weight: 300;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    opacity: 0;
+    animation: show 4s forwards;
+    visibility: hidden;
+}
+
+.changes span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@keyframes show {
+    0% {
+      opacity: 0;
+      visibility: visible; /* Ustawiamy widoczność na true */
+    }
+    10% {
+      opacity: 1; /* Po 10% czasu trwania animacji (0.05s w przypadku 0.5s), element staje się widoczny */
+    }
+    90% {
+      opacity: 1; /* Element pozostaje widoczny przez większość czasu trwania animacji */
+    }
+    100% {
+      opacity: 0; /* Na końcu animacji, element znika */
+      visibility: hidden; /* Ustawiamy widoczność na false */
+    }
+  }

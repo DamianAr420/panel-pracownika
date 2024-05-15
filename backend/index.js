@@ -10,8 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', apiRouters);
 app.use(cors());
 
-app.get('/pobierzDane', apiRouters);
+app.get('/fetchData', apiRouters);
 app.post('/login', apiRouters);
+app.post('/edit', apiRouters)
 
 app.listen(port, () => {
     console.log('Serwer działa na porcie: ' + port);
