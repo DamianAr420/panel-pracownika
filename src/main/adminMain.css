@@ -1,0 +1,33 @@
+.adminHeader {
+    width: 100vw;
+    height: 15vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.navi {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: 15vh;
+    text-align: center;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.navi:hover {
+    background-color: #464646;
+}
+
+.navi:last-child {
+    border-right: 0;
+}
+
+.navi:first-child {
+    border-left: 0;
+}

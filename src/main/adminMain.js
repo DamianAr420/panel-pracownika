@@ -1,21 +1,23 @@
 import React from 'react'
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
-import Home from './home/home';
-import Zmiany from './zmiany/zmiany';
-import Kontakt from './kontakt/kontakt';
-import Profil from './profil/profil';
-import "./main.css";
+import Home from '../panelPracownika/home/home';
+import Zmiany from '../panelPracownika/zmiany/zmiany';
+import Kontakt from '../panelPracownika/kontakt/kontakt';
+import Profil from '../panelPracownika/profil/profil';
+import Admin from '../adminPanel/admin';
+import "./adminMain.css";
 
 export default class Main extends React.Component {
   render(){
     return (
       <div>
         <Router>
-        <div className="header">
+        <div className="adminHeader">
           <Link className='navi' to="/">Strona Główna</Link>
           <Link className='navi' to="/zmiany">Zmiany</Link>
           <Link className='navi' to="/kontakt">Kontakt</Link>
           <Link className='navi' to="/profil">Profil</Link>
+          <Link className='navi' to="/admin">Admin</Link>
         </div>
         <div className="body">
           <Routes>
@@ -23,6 +25,7 @@ export default class Main extends React.Component {
             <Route path="/zmiany" element={<Zmiany />} />
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/profil" element={<Profil />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>
         </Router>

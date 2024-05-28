@@ -13,6 +13,7 @@ app.use(cors());
 app.get('/fetchData', apiRouters);
 app.post('/login', apiRouters);
 app.post('/edit', apiRouters)
+app.post('/addShifts', apiRouters)
 
 app.listen(port, () => {
     console.log('Serwer działa na porcie: ' + port);

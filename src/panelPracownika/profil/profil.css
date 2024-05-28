@@ -109,16 +109,16 @@ table td:nth-child(2n + 1) {
 @keyframes show {
     0% {
       opacity: 0;
-      visibility: visible; /* Ustawiamy widoczność na true */
+      visibility: visible;
     }
     10% {
-      opacity: 1; /* Po 10% czasu trwania animacji (0.05s w przypadku 0.5s), element staje się widoczny */
+      opacity: 1;
     }
     90% {
-      opacity: 1; /* Element pozostaje widoczny przez większość czasu trwania animacji */
+      opacity: 1;
     }
     100% {
-      opacity: 0; /* Na końcu animacji, element znika */
-      visibility: hidden; /* Ustawiamy widoczność na false */
+      opacity: 0;
+      visibility: hidden;
     }
   }

@@ -43,7 +43,7 @@ class Actions {
         const { _id, Tel, Email, Login, Hasło } = req.body;
         let editedUser;
         try {
-            if(Hasło!== "") {
+            if(Hasło !== "") {
                 const hashedPassword = await bcrypt.hash(Hasło, 12);
                 editedUser = await User.updateOne({ _id: _id }, { tel: Tel, email: Email, login: Login, password: hashedPassword });
             } else {
@@ -58,6 +58,29 @@ class Actions {
         } catch (err) {
             console.error('Błąd podczas aktualizacji danych użytkownika:', err);
             res.status(500).json({ message: 'Błąd podczas aktualizacji danych użytkownika' });
+        }
+    }
+
+    async addShifts(req, res) {
+        const { shifts } = req.body;
+
+        try {
+            for(const shift of shifts) {
+                const user = await User.findById(shift.user);
+                if(user) {
+                    const existingShift = user.zmiany.find(zmiana => zmiana.data === shift.date);
+                    if(existingShift) {
+                        existingShift.od = shift.od;
+                        existingShift.do = shift.do;
+                    } else {
+                        user.zmiany.push({ data: shift.date, od: shift.od, do: shift.do });
+                    }
+                    await user.save();
+                }
+            }
+            res.status(200).json({ message: 'Zmiany zostały zapisane' });
+        } catch (err) {
+            res.status(500).json({ message: 'Błąd podczas zapisywania danych', error: err });
         }
     }
 }
