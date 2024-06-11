@@ -1,97 +1,25 @@
-.admin {
-    width: 100vw;
-    height: 85vh;
+.adminButtonsBox {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.admin select {
-    width: 40vw;
-    height: 5vh;
-    margin: 0 auto;
-    transform: translate(0%, 20%);
-}
-
-.dates {
-    width: 70vw;
-    height: 30vh;
-    background-color: #a8a8a8;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    text-align: center;
+.adminButton {
+    height: 10vh;
+    background-color: orange;
+    border: 2px solid rgb(197, 197, 197);
+    border-bottom: 0;
     font-size: 1.5rem;
+    font-weight: 400;
 }
 
-.datesButton {
-    background-color: #48ff00;
-    width: 50%;
-    margin: 0 auto;
-    margin-bottom: 4%;
+.adminButton:first-child {
+    border-left: 0;
 }
 
-.shifts {
-    width: 70vw;
-    height: 40vh;
-    background-color: #a8a8a8;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    overflow: auto;
+.adminButton:last-child {
+    border-right: 0;
 }
 
-.text {
-    font-size: 1.5rem;
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 20%;
+.adminButton:hover {
+    background-color: rgb(209, 136, 0);
 }
-
-.inputs {
-    width: 70%;
-    margin: 5% auto;
-}
-
-.inputs input{
-    width: 100%;
-}
-
-.submitButton {
-    width: 50%;
-    background-color: #48ff00;
-    margin: 0 auto;
-    margin-bottom: 2%;
-}
-
-.notification {
-    width: 40vw;
-    height: auto;
-    background-color: rgba(106, 218, 32, 0.863);
-    border: 2px solid black;
-    font-size: 1.5rem;
-    font-weight: 500;
-    position: absolute;
-    right: 0;
-    top: 0%;
-    opacity: 0;
-    animation: show 4s forwards;
-    visibility: hidden;
-    text-align: center;
-}
-
-@keyframes show {
-    0% {
-      opacity: 0;
-      visibility: visible;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }

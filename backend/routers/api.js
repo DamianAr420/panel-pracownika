@@ -6,5 +6,6 @@ router.post('/login', actions.login)
 router.get('/fetchData', actions.fetchData)
 router.post('/edit', actions.edit)
 router.post('/addShifts', actions.addShifts)
+router.post('/addUser', actions.addUser)
 
 module.exports = router;

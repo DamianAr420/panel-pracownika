@@ -83,6 +83,31 @@ class Actions {
             res.status(500).json({ message: 'Błąd podczas zapisywania danych', error: err });
         }
     }
+
+    async addUser(req, res) {
+        const { login, password, imie, nazwisko, role, stanowisko, umowa, dodanyPrzez } = req.body;
+
+        try {
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            const newUser = new User({
+                login,
+                password: hashedPassword,
+                imie,
+                nazwisko,
+                role,
+                stanowisko,
+                umowa,
+                dodanyPrzez
+            });
+
+            await newUser.save();
+            res.status(201).json({ message: 'Pomyślnie dodano użytkownika' });
+        } catch (error) {
+            console.error('Błąd podczas dodawania użytkownika:', error);
+            res.status(500).json({ error: 'Błąd dodawania użytkownika do bazy danych' });
+        }
+    }
 }
 
 module.exports = new Actions();

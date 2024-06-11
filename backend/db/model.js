@@ -33,6 +33,9 @@ const UserSchema = new mongoose.Schema({
     umowa: {
         type: String,
     },
+    dodanyPrzez: {
+        type: String
+    },
 }, { collection: 'pracownicy' });
 
 const User = mongoose.model('User', UserSchema);
