@@ -103,19 +103,19 @@ export default function Zmiany() {
     }
   
     const formattedDate = new Date(selectedDate).toLocaleDateString();
-    let foundChange = null;
+    let foundShift = null;
   
     for(let a = 0; a < zmiany.zmiany.length; a++) {
       if(zmiany.zmiany[a].data === formattedDate) {
-        foundChange = `${zmiany.zmiany[a].od}-${zmiany.zmiany[a].do}`;
+        foundShift = `${zmiany.zmiany[a].od}-${zmiany.zmiany[a].do}`;
         break;
       }
     }
   
-    if(foundChange) {
+    if(foundShift) {
       return (
         <>
-          {foundChange}
+          {foundShift}
         </>
       );
     } else {
