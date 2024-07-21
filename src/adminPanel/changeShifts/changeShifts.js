@@ -130,6 +130,7 @@ export default function ChangeShifts() {
           <label>Data od</label>
           <input 
             type="date" 
+            className='changeShiftsInput'
             value={date.from} 
             onChange={(event) => {
               setDate(prevState => ({
@@ -141,6 +142,7 @@ export default function ChangeShifts() {
           <label>Data do</label>
           <input 
             type="date" 
+            className='changeShiftsInput'
             value={date.to} 
             onChange={(event) => {
               setDate(prevState => ({

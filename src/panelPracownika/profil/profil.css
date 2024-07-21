@@ -44,7 +44,7 @@
     width: 80vw;
     height: 90vh;
     box-shadow: 0px 0px 100px 80px rgb(180, 180, 180);
-    background-color: gray;
+    background: linear-gradient(to bottom, lightgray, gray, darkgray);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -71,19 +71,29 @@ table td:nth-child(2n + 1) {
 }
 
 .close {
-    padding: 12%;
+    padding: 20px;
+    border-radius: 10px;
     font-size: 1.2rem;
     font-weight: bold;
     background-color: rgb(230, 20, 20);
     margin-bottom: 12%;
 }
 
+.close:hover {
+    background-color: rgb(197, 30, 30);
+}
+
 .save {
-    padding: 4%;
+    padding: 20px;
+    border-radius: 10px;
     font-size: 1.2rem;
     font-weight: bold;
     background-color: rgb(20, 230, 20);
     margin-bottom: 4%;
+}
+
+.save:hover {
+    background-color: rgb(34, 201, 34);
 }
 
 .changes {
@@ -120,5 +130,15 @@ table td:nth-child(2n + 1) {
     100% {
       opacity: 0;
       visibility: hidden;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .surname {
+        width: 50vw;
+    }
+
+    .data {
+        width: 50vw;
     }
   }

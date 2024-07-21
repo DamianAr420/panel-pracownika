@@ -53,7 +53,9 @@ export default function Login() {
                 localStorage.setItem("isLogged", "true");
                 return response.json();
             } else {
-                throw new Error(`Błąd logowania: ${response.statusText}`);
+                return response.json().then(data => {
+                    throw new Error(data.error || "Błąd logowania");
+                });
             }
         })
         .then(data => {
@@ -87,7 +89,7 @@ export default function Login() {
                     autoComplete="off"
                     type="text"
                     placeholder="Login"
-                    className="login"
+                    className="loginInput"
                     value={loginData.login}
                     onChange={handleChange}
                 />
@@ -96,7 +98,7 @@ export default function Login() {
                     autoComplete="off"
                     type="password"
                     placeholder="Hasło"
-                    className="haslo"
+                    className="loginInput"
                     value={loginData.password}
                     onChange={handleChange}
                 />

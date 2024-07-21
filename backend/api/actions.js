@@ -9,11 +9,11 @@ class Actions {
             const user = await User.findOne({ login: login });
             if(!user) {
                 console.log("Podany login nie istnieje");
-                return res.status(401).json({ error: "Błąd podczas logowania" });
+                return res.status(401).json({ error: "Podany login nie istnieje" });
             }
             if(!user.password) {
                 console.log("Użytkownik nie ma przypisanego hasła");
-                return res.status(401).json({ error: "Błąd podczas logowania" });
+                return res.status(401).json({ error: "Użytkownik nie ma przypisanego hasła" });
             }
             const passwordMatch = await bcrypt.compare(password, user.password);
             if(passwordMatch) {
@@ -21,7 +21,7 @@ class Actions {
                 return res.status(200).json({ user }); 
             } else {
                 console.log("Nieprawidłowe hasło");
-                return res.status(401).json({ error: 'Błąd podczas logowania' });
+                return res.status(401).json({ error: 'Nieprawidłowe hasło' });
             }
         } catch(err) {
             console.log("Błąd podczas logowania:", err);

@@ -104,3 +104,9 @@
     background-color: #50da19;
     transition: 0.5s;
 }
+
+.changeShiftsInput {
+    width: 50%;
+    margin: auto;
+    border: 1px solid black;
+}

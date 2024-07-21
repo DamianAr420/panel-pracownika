@@ -59,15 +59,40 @@
 }
 
 .selectedDate {
-    width: 50%;
+    border: 2px solid black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 90%;
     margin: 0 auto;
 }
 
 .hours {
-    width: 50%;
+    width: 70%;
     line-height: 10vh;
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0 auto;
     background-color: #898989;
+}
+
+@media screen and (min-width: 1200px) {
+    .shiftToday {
+        width: 50vw;
+    }
+
+    .shiftsWeek {
+        width: 50vw;
+    }
+
+    .selectedDay {
+        width: 50vw;
+    }
+
+    .selectedDate {
+        width: 50%;
+    }
+
+    .hours {
+        width: 50%;
+    }
 }

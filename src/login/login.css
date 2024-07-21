@@ -1,16 +1,16 @@
 .Bcg {
     width: 100vw;
     height: 100vh;
-    background-color: #A0A0A0;
+    background: linear-gradient(45deg,rgb(0, 204, 255), rgb(73, 255, 1));
     margin: 0;
     padding: 0;
 }
 
 .loginForm {
     margin: auto;
-    width: 80vw;
+    width: 50vw;
     padding: 2%;
-    background-color: rgba(255, 255, 255, 0.137);
+    background-color: rgba(255, 255, 255, 0.336);
     display: grid;
     grid-template-columns: 1fr;
     gap: 10vh;
@@ -23,9 +23,9 @@
 .panelPrac {
     width: auto;
     height: auto;
-    background-color: #666;
+    background-color: #00ff80;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     padding: 10px;
 }
@@ -34,42 +34,57 @@
     margin: auto;
     width: auto;
     height: auto;
-    background-color: #ffc400;
-    border: 2px solid black;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid black;
     text-align: center;
     font-size: 1.6rem;
+    font-weight: bold;
     color: rgb(0, 0, 0);
     padding: 25px;
 }
 
-input {
+.loginInput {
     margin: auto;
     width: auto;
     height: auto;
     padding: 2%;
     font-size: 1.2rem;
-    border: 2px solid rgb(122, 122, 122);
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.699);
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
-input:focus {
-    outline: 2px solid rgb(229, 255, 0);
+.loginInput::placeholder {
+    color: black;
+}
+
+.loginInput:focus {
+    outline: 0;
     outline-offset: -2px;
-    background-color: #666;
-    color: white;
+    background-color: #ffffff56;
+    color: black;
+    border-bottom: 2px solid rgb(0, 102, 255);
+}
+
+.loginInput:hover {
+    background-color: rgba(255, 255, 255, 0.438);
+    border-bottom: 2px solid white;
 }
 
 .loginButton {
-    margin: auto;
-    width: auto;
-    height: auto;
-    background-color: rgb(100, 255, 52);
+    background-color: rgb(60, 255, 0);
     font-size: 3rem;
     padding: 1%;
-    border: 2px solid black;
     border-radius: 15px;
 }
 
 .loginButton:hover {
     background-color: rgb(113, 255, 70);
-    border: 2px solid rgb(31, 31, 31);
 }

@@ -57,7 +57,18 @@
     width: 30vw;
     height: 6vh;
     margin: 0 auto;
+    text-align: center;
     font-weight: bold;
     font-size: 1.5rem;
     display: flex;
+}
+
+@media screen and (min-width: 1200px) {
+    .superiors {
+        width: 50vw;
+    }
+
+    .employees {
+        width: 50vw;
+    }
 }

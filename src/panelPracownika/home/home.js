@@ -64,7 +64,7 @@ export default function Home() {
     }
     return(
       <>
-        <h1 className='text-[1.5rem] font-bold'>{today}</h1>
+        <h1 className='text-[1.7rem] font-bold border-b-2 border-black'>{today}</h1>
         <ul>
           {employees.map((emp, index) => {
             return <li key={index}>{emp}</li>
