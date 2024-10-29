@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/panel-pracownika/static/css/main.ea1a408a.css",
+    "main.js": "/panel-pracownika/static/js/main.ac60e42b.js",
+    "index.html": "/panel-pracownika/index.html",
+    "main.ea1a408a.css.map": "/panel-pracownika/static/css/main.ea1a408a.css.map",
+    "main.ac60e42b.js.map": "/panel-pracownika/static/js/main.ac60e42b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea1a408a.css",
+    "static/js/main.ac60e42b.js"
+  ]
+}
